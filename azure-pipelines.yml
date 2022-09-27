@@ -10,22 +10,16 @@ pool:
 
 steps:
 - task: TerraformCLI@0
-  displayName: Terraform Init
+  displayName: Terraform init
   inputs:
     command: 'init'
-    allowTelemetryCollection: true
+    allowTelemetryCollection: false
 
 - task: TerraformCLI@0
-  displayName: Terraform Plan
+  displayName: Terraform plan
   inputs:
     command: 'plan'
-    environmentServiceName: 'youtube-app-service-connection'
+    environmentServiceName: 'activ-edge(a17a081a-c3f6-4fce-a0fd-6bef7752f473)'
     allowTelemetryCollection: false
-- task: TerraformCLI@0
-  displayName: Terraform Apply
-  inputs:
-    command: 'apply'
-    environmentServiceName: 'youtube-app-service-connection'
-    allowTelemetryCollection: true
 
 
