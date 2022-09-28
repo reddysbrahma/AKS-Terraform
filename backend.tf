@@ -3,7 +3,7 @@ terraform {
     resource_group_name  = "activedge-terraform-rg"
     storage_account_name = "activedgeterraform4472"
     container_name       = "activstage"
-    key                  = "samplestg"
+    key                  = "aksdemo"
   }
 }
  
