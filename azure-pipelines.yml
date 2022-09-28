@@ -9,12 +9,7 @@ trigger: none
 pool:
   name: TerraformAgent
 steps:
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'Azure CLI'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az login'
+
 - task: TerraformCLI@0
   displayName: Terraform init
   inputs:
