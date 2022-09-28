@@ -6,8 +6,7 @@
 trigger: none
 
 pool:
-  vmImage: ubuntu-latest
-
+  name: runner-for-terraform
 steps:
 - task: TerraformCLI@0
   displayName: Terraform init
