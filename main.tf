@@ -1,6 +1,6 @@
 data "azurerm_key_vault" "azure_vault" {
-  name                = var.keyvault_name
-  resource_group_name = var.keyvault_rg
+  name                = "aksdemoclusterkentest-kv"
+  resource_group_name = "aksdemo-rg"
 }
 
 data "azurerm_key_vault_secret" "ssh_public_key" {
