@@ -6,7 +6,7 @@
 trigger: none
 
 pool:
-  name: runner-for-terraform
+  name: TerraformAgent
 steps:
 - task: TerraformCLI@0
   displayName: Terraform init
