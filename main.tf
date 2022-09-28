@@ -1,21 +1,21 @@
-data "azurerm_key_vault" "azure_vault" {
-  name                = "aksdemoclusterkentest-kv"
-  resource_group_name = "aksdemo-rg"
-}
+# data "azurerm_key_vault" "azure_vault" {
+#   name                = "aksdemoclusterkentest-kv"
+#   resource_group_name = "aksdemo-rg"
+# }
 
-data "azurerm_key_vault_secret" "ssh_public_key" {
-  name         = var.sshkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
+# data "azurerm_key_vault_secret" "ssh_public_key" {
+#   name         = var.sshkvsecret
+#   key_vault_id = data.azurerm_key_vault.azure_vault.id
+# }
 
-data "azurerm_key_vault_secret" "spn_id" {
-  name         = var.clientidkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
-data "azurerm_key_vault_secret" "spn_secret" {
-  name         = var.spnkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
+# data "azurerm_key_vault_secret" "spn_id" {
+#   name         = var.clientidkvsecret
+#   key_vault_id = data.azurerm_key_vault.azure_vault.id
+# }
+# data "azurerm_key_vault_secret" "spn_secret" {
+#   name         = var.spnkvsecret
+#   key_vault_id = data.azurerm_key_vault.azure_vault.id
+# }
 
 resource "azurerm_virtual_network" "aks_vnet" {
   name                = var.aks_vnet_name
@@ -51,20 +51,20 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     os_disk_size_gb = var.agent_pools.os_disk_size_gb
   }
 
-  linux_profile {
-    admin_username = var.admin_username
-    ssh_key {
-      key_data = data.azurerm_key_vault_secret.ssh_public_key.value
-    }
-  }
+#   linux_profile {
+#     admin_username = var.admin_username
+#     ssh_key {
+#       key_data = data.azurerm_key_vault_secret.ssh_public_key.value
+#     }
+#   }
 
-  role_based_access_control {
-    enabled = true
-  }
+#   role_based_access_control {
+#     enabled = true
+#   }
 
   service_principal {
-    client_id     = data.azurerm_key_vault_secret.spn_id.value
-    client_secret = data.azurerm_key_vault_secret.spn_secret.value
+    client_id     = "5ba39fae-64da-45f0-a2ec-0f224f9cd6cf"
+    client_secret = "sk98Q~zQUlXA4r.JDl7rPUPL9I860_yiGHoQ~aqK"
   }
 
   tags = {
