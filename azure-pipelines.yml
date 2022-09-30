@@ -29,5 +29,11 @@ steps:
     environmentServiceName: 'activ-edge(a17a081a-c3f6-4fce-a0fd-6bef7752f473)'
     allowTelemetryCollection: false
 
+- task: TerraformCLI@0
+  displayName: Terraform destroy
+  inputs:
+    command: 'destroy'
+    environmentServiceName: 'activ-edge(a17a081a-c3f6-4fce-a0fd-6bef7752f473)'
+    allowTelemetryCollection: false
 
 
